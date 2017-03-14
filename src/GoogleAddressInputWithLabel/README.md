@@ -1,2 +1,0 @@
-# GoogleAddressInputWithLabel component
-
