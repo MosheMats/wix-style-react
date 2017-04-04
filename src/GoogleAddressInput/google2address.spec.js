@@ -99,4 +99,14 @@ describe('google 2 address', () => {
     expect(google2address(aGoogleResponse({types: ['premise']})).approximate).toBe(false);
     expect(google2address(aGoogleResponse({types: ['anything else']})).approximate).toBe(true);
   });
+
+  it('should omit any undefined field', () => {
+    expect(google2address(aGoogleResponse({}))).toEqual({
+      approximate: true,
+      latLng: {
+        lat: 1, lng: 2
+      },
+      formatted: ''
+    });
+  });
 });

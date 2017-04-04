@@ -1,5 +1,5 @@
 /*eslint camelcase: off*/
-import includes from 'lodash.includes';
+import {includes, omitBy, isUndefined} from 'lodash';
 
 export function google2address(google) {
   const components = {};
@@ -11,7 +11,7 @@ export function google2address(google) {
 
   const locality = components.locality || components.sublocality;
 
-  return {
+  return omitBy({
     formatted: google.formatted_address,
     latLng: {
       lat: google.geometry.location.lat(),
@@ -25,5 +25,5 @@ export function google2address(google) {
     street: components.route && components.route.long_name,
     number: components.street_number && components.street_number.long_name,
     postalCode: components.postal_code && components.postal_code.long_name
-  };
+  }, isUndefined);
 }
