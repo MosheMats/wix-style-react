@@ -1,5 +1,5 @@
 /*eslint camelcase: off*/
-import {google2address} from './google2Address';
+import {google2address} from './google2address';
 
 describe('google 2 address', () => {
   const aComponent = (long_name, short_name, ...types) => ({
