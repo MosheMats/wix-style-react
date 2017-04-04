@@ -1,11 +1,12 @@
+/*eslint camelcase: off*/
 import includes from 'lodash.includes';
 
 export function google2address(google) {
   const components = {};
   google.address_components.forEach(({types, long_name, short_name}) => {
     types.forEach(type => {
-      components[type] = {long_name, short_name}
-    })
+      components[type] = {long_name, short_name};
+    });
   });
 
   const locality = components.locality || components.sublocality;

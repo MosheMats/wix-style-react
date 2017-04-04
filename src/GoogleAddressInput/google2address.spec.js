@@ -1,3 +1,4 @@
+/*eslint camelcase: off*/
 import {google2address} from './google2Address';
 
 describe('google 2 address', () => {
